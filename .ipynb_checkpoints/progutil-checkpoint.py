@@ -70,7 +70,7 @@ class Data_Maps():
                     else:
                         break
                 lmap.append(count)
-        left_maps.append(lmap)
+            left_maps.append(lmap)
         return left_maps
 
     def right_maps(self, rstep, cstep):
@@ -86,7 +86,7 @@ class Data_Maps():
                     else:
                         break
                 rmap.append(count)
-        right_maps.append(rmap)
+            right_maps.append(rmap)
         return right_maps
 
     def top_maps(self, rstep, cstep):
@@ -102,7 +102,7 @@ class Data_Maps():
                     else:
                         break
                 tmap.append(count)
-        top_maps.append(tmap)
+            top_maps.append(tmap)
         return top_maps
   
     def bottom_maps(self, rstep, cstep):
@@ -118,7 +118,7 @@ class Data_Maps():
                     else:
                         break
                 bmap.append(count)
-        b_maps.append(bmap)
+            b_maps.append(bmap)
         return b_maps
 
    
