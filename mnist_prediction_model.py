@@ -5,6 +5,26 @@ import torchvision
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
+class Model(nn.Module):
+    def __init__(self, input_size, hidden_dims, output_size):
+        super(Model,self).__init__()
+        self.fclayer1 = nn.Linear(input_size, hidden_dims[0])
+        self.fclayer2 = nn.Linear(hidden_dims[0], hidden_dims[1])
+        self.output_layer = nn.Linear(hidden_dims[1], output_size)
+        
+        self.lerelu = nn.LeakyReLU(0.1)
+        self.soft = nn.Softmax(dim = 1)
+        
+    def forward(self,x):
+        z = self.fclayer1(x)
+        z = self.lerelu(z)
+        z = self.fclayer2(z)
+        z = self.lerelu(z)
+        z = self.output_layer(z)
+        z = self.soft(z)
+        
+        return z
+
 class Auto_encoder(nn.Module):
     def __init__(self, input_size, hidden_dims):
         super(Auto_encoder,self).__init__()
